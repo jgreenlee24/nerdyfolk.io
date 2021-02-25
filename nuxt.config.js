@@ -70,6 +70,6 @@ export default {
   },
 
   googleAnalytics: {
-    id: "G-DFCKN5SDZ7"
+    id: "G-HEF6S8JSKC"
   }
 };
