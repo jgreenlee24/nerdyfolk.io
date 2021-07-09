@@ -6,9 +6,9 @@
           <h1 class="title is-1 has-text-centered">
             {{ post.title }}
           </h1>
-          
+
           <nuxt-content :document="post" />
-    
+
           <div class="mt-4 has-text-centered">
             <nuxt-link class="button is-primary is-light" to="/">
               View All Posts
@@ -23,7 +23,7 @@
 export default {
   async asyncData ({ $content, params }) {
     const post = await $content('posts', params.slug).fetch()
-    
+
     return { post }
   },
   head () {

@@ -2,3 +2,58 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+
+// Theme colors
+$theme-primary: #59CCD9;
+$theme-secondary: #5FC2D9;
+$theme-accent: #59CCD9;
+$theme-error: #C23934;
+$theme-info: #5890DC;
+$theme-success: #4CAF50;
+$theme-warning: #EFCCD0;
+$theme-white: #FFFFFF;
+
+$theme-red: #ea4b44;
+$theme-pink: #e3959e;
+$theme-navy: #3c4c56;
+$theme-cyan: #d0eaef;
+$theme-grey: #404040;
+$theme-silver: #cbcbcb;
+$theme-lightgrey: #efefef;
+
+// Colors in design lib
+$color-dark-grey: #808080;
+$color-off-white: #F7F2F2;
+
+// Globals
+$body-font-family: 'Work Sans', serif;
+$border-radius-root: 6px;
+$font-size-root: 14px;
+
+// Variables must come before the import
+$btn-letter-spacing: 0;
+$btn-font-weight: 400;
+$list-item-title-font-size: 0.929rem;
+$list-item-dense-title-font-size: 0.929rem;
+$list-item-dense-title-font-weight: initial;
+$fab-icon-sizes: (
+  'small': 20
+);
+$btn-sizes: (
+  'default': 41,
+  'large': 54
+);
+
+$headings: (
+  'h1': (
+    'size': 3.3125rem,
+    'line-height': 1.15em
+  ),
+  'h2': (
+    'size': 2.25rem,
+    'line-height': 1.5em
+  )
+);
+
+$btn-border-radius: 0px;
+$material-light: ( cards: blue );

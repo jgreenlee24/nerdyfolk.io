@@ -20,6 +20,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    // '~/assets/styles/main.scss',
+    // '~/assets/styles/animations.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -43,7 +45,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxt/content',
-    '@nuxtjs/eslint-module',
+    '@nuxtjs/eslint-module'
   ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -70,6 +72,6 @@ export default {
   },
 
   googleAnalytics: {
-    id: "G-GWWJ1SG9HL"
+    id: 'G-GWWJ1SG9HL'
   }
-};
+}

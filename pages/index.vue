@@ -5,8 +5,8 @@
         <div class="container">
           <h2 class="subtitle">
             Welcome to nerdyfolk, the social hotspot for all things geekdom.
-            Are you a non-profit in need a new, up-to-standard website? Shoot us an email at 
-            <a href = "mailto: jgreenlee24@gmail.com">jgreenlee24@gmail.com</a>
+            Are you a non-profit in need a new, up-to-standard website? Shoot us an email at
+            <a href="mailto: jgreenlee24@gmail.com">jgreenlee24@gmail.com</a>
           </h2>
         </div>
       </div>
