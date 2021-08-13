@@ -1,117 +1,102 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
+  <v-app>
+    <v-progress-linear
+      :active="loading"
+      :indeterminate="loading"
+      absolute
+      top
+      color="secondary"
+    />
+
+    <NavigationDrawer />
+    <SettingsDrawer />
+
+    <v-main
+      :class="[background ? 'transparent' : 'background--color', { 'glassmorph--enabled' : glassmorph}]"
     >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
+      <SettingsMenu />
+      
+      <div
+        v-if="glassmorph"
+        class="shape-1"
       >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
+        <img :src="require(`~/assets/img/shape2.svg`)">
+      </div>
+      <div
+        v-if="glassmorph"
+        class="shape-2"
+        style="position: fixed; top: 0; left: 0"
       >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
-    <v-main>
-      <v-container>
-        <nuxt />
+        <img :src="require(`~/assets/img/shape.svg`)">
+      </div>
+      
+      <v-container class="mt-3">
+        <v-row>
+          <v-col cols="12">
+            <TopBar
+              v-if="$route.name != 'dashboard'"
+              :title="routeName"
+            />
+          </v-col>
+        </v-row>
       </v-container>
+      
+      <div v-if="loading">
+        <div
+          class="d-flex align-center justify-center w-100 full-height mt-n100"
+        >
+          <CustomLoader />
+        </div>
+      </div>
+      
+      <v-fade-transition v-else>
+        <nuxt />
+      </v-fade-transition>
     </v-main>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+
+    <IdentityDialog />
   </v-app>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  data () {
+  data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'NerdyFolk'
-    }
-  }
-}
+      loading: false,
+    };
+  },
+  computed: {
+    ...mapGetters(["glassmorph", "background"]),
+    routeName() {
+      if (!this.$nuxt.$route.name) return "404";
+      if (this.$nuxt.$route.name == "index") return "Dashboard";
+
+      return this.$nuxt.$route.name;
+    },
+  },
+  watch: {
+    $route() {
+      this.load();
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.load();
+    });
+  },
+  methods: {
+    load() {
+      this.loading = true;
+      setTimeout(() => (this.loading = false), 400);
+    },
+  },
+};
 </script>
+
+<style scoped>
+.mt-n100 {
+  margin-top: -100px !important;
+}
+</style>

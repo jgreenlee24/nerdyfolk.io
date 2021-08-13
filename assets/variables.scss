@@ -2,58 +2,91 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+@import '~vuetify/src/styles/styles.sass';
 
-// Theme colors
-$theme-primary: #59CCD9;
-$theme-secondary: #5FC2D9;
-$theme-accent: #59CCD9;
-$theme-error: #C23934;
-$theme-info: #5890DC;
-$theme-success: #4CAF50;
-$theme-warning: #EFCCD0;
-$theme-white: #FFFFFF;
+$sheet-border-radius: 6px;
+$card-border-radius: 6px;
+$list-border-radius: 6px;
 
-$theme-red: #ea4b44;
-$theme-pink: #e3959e;
-$theme-navy: #3c4c56;
-$theme-cyan: #d0eaef;
-$theme-grey: #404040;
-$theme-silver: #cbcbcb;
-$theme-lightgrey: #efefef;
+$grid-breakpoints: ('xs': 0,
+  'sm': 576px,
+  'md': 900px,
+  'lg': 1400px - 24px,
+  'xl': 1600 - 24px);
 
-// Colors in design lib
-$color-dark-grey: #808080;
-$color-off-white: #F7F2F2;
+.v-application .v-chip.primary {
+  background: rgba(188, 123, 255, 0.12157) !important;
+  color: #ba7ff6 !important;
+}
 
-// Globals
-$body-font-family: 'Work Sans', serif;
-$border-radius-root: 6px;
-$font-size-root: 14px;
+.v-application .v-chip.success {
+  background: #96ff7b1f !important;
+  color: #40ed93 !important;
+}
 
-// Variables must come before the import
-$btn-letter-spacing: 0;
-$btn-font-weight: 400;
-$list-item-title-font-size: 0.929rem;
-$list-item-dense-title-font-size: 0.929rem;
-$list-item-dense-title-font-weight: initial;
-$fab-icon-sizes: (
-  'small': 20
-);
-$btn-sizes: (
-  'default': 41,
-  'large': 54
-);
+.v-application .v-chip.info {
+  background: #bc7bff1f !important;
+  color: #00A1FF !important;
+}
 
-$headings: (
-  'h1': (
-    'size': 3.3125rem,
-    'line-height': 1.15em
-  ),
-  'h2': (
-    'size': 2.25rem,
-    'line-height': 1.5em
-  )
-);
+.v-application .v-chip.error {
+  background: #ff7b7b1f !important;
+  color: #ff6d6d !important;
+}
 
-$btn-border-radius: 0px;
-$material-light: ( cards: blue );
+.v-application .v-chip.warning {
+  background: #ffbb7b1f !important;
+  color: #ffbb6d !important;
+}
+
+.v-calendar,
+.v-calendar * {
+  background: transparent !important;
+  border-color: #332d90 !important;
+}
+
+.v-calendar-daily .v-calendar-daily__intervals-head::after {
+  background: transparent !important;
+}
+
+.v-application #baseSheet.sheets--outlined {
+  border: 1px solid #c9afff3b !important;
+}
+
+.gap-sm {
+  gap: 5px;
+}
+
+.gap-md {
+  gap: 9px;
+}
+
+.gap-lg {
+  gap: 13px;
+}
+
+.v-window.v-item-group.theme--dark.v-tabs-items {
+  background: transparent !important;
+}
+
+.theme--dark.v-data-table tbody tr.v-data-table__selected {
+  background: var(--v-base-lighten1) !important;
+}
+
+.v-application .glass {
+  background-color: #ffffff0a !important;
+}
+
+$material-dark: (cards: var(--v-tertiary-base));
+
+@media only screen and (min-width: map-get($grid-breakpoints, 'lg')) {
+  .container {
+    max-width: 90% !important;
+  }
+}
+
+@media only screen and (min-width: map-get($grid-breakpoints, 'xl')) {
+  .container {
+    max-width: 1600px !important;
+  }
+}

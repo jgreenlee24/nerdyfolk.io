@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "moduleResolution": "node",
-    "checkJs": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "~~/*": ["./*"],
+      "@@/*": ["./*"]
     }
   },
-  "include": ["src/**/*"]
+  "exclude": ["node_modules", ".nuxt", "dist"]
 }

@@ -1,39 +1,30 @@
 {
-  "name": "nerdyfolk.io",
-  "author": "Justin Greenlee",
-  "version": "1.0.0",
+  "author": "Justin B. Greenlee",
+  "name": "nerdyfolk",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "serve": "nuxt-ts",
-    "generate": "nuxt-ts generate",
-    "test": "jest",
-    "lint": "eslint '**/*.vue' --ignore-pattern node_modules/ --fix"
+    "dev": "nuxt",
+    "dev:host": "nuxt --hostname 0.0.0.0 --port 80",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxt/content": "^1.13.1",
-    "@nuxt/typescript-runtime": "^2.0.1",
-    "core-js": "^3.8.3",
-    "nuxt": "^2.14.12",
-    "typescript": "^4.2.2",
-    "vue-gtag": "^1.11.0"
+    "@mdi/js": "^5.9.55",
+    "aos": "^2.3.4",
+    "apexcharts": "^3.26.2",
+    "chart.js": "^2.9.3",
+    "core-js": "^3.9.1",
+    "nuxt": "^2.15.3",
+    "vue-apexcharts": "^1.6.1",
+    "vue-chartjs": "^3.5.1",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.12",
-    "@nuxt/typescript-build": "^2.0.4",
-    "@nuxtjs/eslint-config": "^6.0.1",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/vuetify": "^1.11.3",
-    "@vue/test-utils": "^1.1.2",
-    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
-    "jest": "^26.6.3",
-    "jshint": "^2.12.0",
-    "ts-jest": "^26.4.4",
-    "vue-jest": "^3.0.4"
+    "eslint": "^7.25.0",
+    "eslint-plugin-vue": "^7.9.0"
   }
 }
